@@ -45,4 +45,4 @@ ENV PYTHONUNBUFFERED=1 \
     STORAGE_DIR=/app/storage/masks
 
 # Start FastAPI via uvicorn with dynamic port routing assigned by Render
-CMD ["sh", "-c", "uvicorn main:app --app-dir backend --host 0.0.0.0 --port ${PORT:-10000}"]
+CMD ["sh", "-c", "python -m uvicorn main:app --app-dir backend --host 0.0.0.0 --port ${PORT:-10000}"]
