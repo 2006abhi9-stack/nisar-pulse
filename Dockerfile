@@ -41,15 +41,8 @@ COPY --from=frontend-builder /app/frontend/dist ./frontend/dist
 RUN mkdir -p /app/storage/masks
 
 # Set production environment variables
-ENV PORT=8000 \
-    PYTHONUNBUFFERED=1 \
+ENV PYTHONUNBUFFERED=1 \
     STORAGE_DIR=/app/storage/masks
 
-EXPOSE 8000
-
-# Health check to ensure service readiness
-HEALTHCHECK --interval=30s --timeout=5s --start-period=15s --retries=3 \
-    CMD curl -f http://localhost:${PORT:-8000}/api/health || exit 1
-
-# Start FastAPI via uvicorn with dynamic port routing
-CMD ["sh", "-c", "uvicorn main:app --app-dir backend --host 0.0.0.0 --port ${PORT:-8000}"]
+# Start FastAPI via uvicorn with dynamic port routing assigned by Render
+CMD ["sh", "-c", "uvicorn main:app --app-dir backend --host 0.0.0.0 --port ${PORT:-10000}"]

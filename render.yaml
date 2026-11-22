@@ -12,8 +12,6 @@ services:
     region: oregon
     healthCheckPath: /api/health
     envVars:
-      - key: PORT
-        value: 8000
       - key: STORAGE_DIR
         value: /app/storage/masks
       - key: PYTHONUNBUFFERED
