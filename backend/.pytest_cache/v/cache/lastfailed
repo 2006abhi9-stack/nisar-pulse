@@ -1,0 +1,7 @@
+{
+  "test_task7_e2e_mission.py": true,
+  "test_task6_verification.py": true,
+  "test_road_impact.py": true,
+  "test_task4_execution.py": true,
+  "test_sar_geospatial.py": true
+}

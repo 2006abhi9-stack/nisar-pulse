@@ -1,0 +1,199 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-canvas-sand: #101820;
+  --color-surface-cream: #1B2935;
+  --color-surface-recessed: #233442;
+  --color-border-sandstone: #2C3E50;
+  --color-border-subtle: #1E2D3B;
+  --color-accent-espresso: #36CFC9;
+  --color-accent-umber: #20B2AA;
+  --color-alert-terracotta: #D85B61;
+  --color-warning-ochre: #D9A441;
+  --color-success-sage: #4DB58A;
+  --color-text-roast: #F1F5F9;
+  --color-text-taupe: #AAB7C4;
+}
+
+/* Custom Scrollbars in Dark Geospatial Theme */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #101820;
+}
+::-webkit-scrollbar-thumb {
+  background: #233442;
+  border-radius: 3px;
+  border: 1px solid #1B2935;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2C3E50;
+}
+
+/* Dark Geospatial Basemap Filter */
+.carto-dark-tiles {
+  filter: brightness(96%) contrast(104%);
+}
+
+.carto-voyager-tiles {
+  filter: brightness(80%) invert(95%) hue-rotate(185deg) contrast(120%);
+}
+
+/* Tactical Shimmer Loading Wave */
+@keyframes tactical-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer-sand {
+  background: linear-gradient(90deg, #1B2935 25%, #233442 50%, #1B2935 75%);
+  background-size: 200% 100%;
+  animation: tactical-shimmer 1.8s infinite ease-in-out;
+}
+
+/* Geoman & Leaflet Controls Dark Tactical Theme */
+.leaflet-bar {
+  border: 1px solid #2C3E50 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45) !important;
+  border-radius: 4px !important;
+  overflow: hidden;
+}
+
+.leaflet-bar a,
+.leaflet-buttons-control-button {
+  background-color: #1B2935 !important;
+  border-bottom: 1px solid #1E2D3B !important;
+  color: #AAB7C4 !important;
+  transition: all 0.18s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+.leaflet-bar a:hover,
+.leaflet-buttons-control-button:hover {
+  background-color: #233442 !important;
+  color: #36CFC9 !important;
+}
+
+.leaflet-buttons-control-button.active,
+.leaflet-buttons-control-button.active:hover {
+  background-color: #36CFC9 !important;
+  color: #101820 !important;
+}
+
+/* Action toolbars (Cancel, Finish buttons when drawing) */
+.leaflet-pm-actions-container {
+  background: #1B2935 !important;
+  border: 1px solid #2C3E50 !important;
+  border-radius: 4px !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5) !important;
+}
+
+.leaflet-pm-actions-container .leaflet-pm-action {
+  background: #1B2935 !important;
+  color: #F1F5F9 !important;
+  border-right: 1px solid #1E2D3B !important;
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  padding: 5px 10px !important;
+  transition: all 0.15s ease !important;
+}
+
+.leaflet-pm-actions-container .leaflet-pm-action:hover {
+  background: #233442 !important;
+  color: #36CFC9 !important;
+}
+
+/* Leaflet Popups and Tooltips in Dark Geospatial Theme */
+.leaflet-popup-content-wrapper {
+  background: #1B2935 !important;
+  color: #F1F5F9 !important;
+  border: 1px solid #2C3E50 !important;
+  border-radius: 6px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6) !important;
+  padding: 0 !important;
+}
+
+.leaflet-popup-content {
+  margin: 12px 14px !important;
+  line-height: 1.4 !important;
+}
+
+.leaflet-popup-tip {
+  background: #1B2935 !important;
+  border: 1px solid #2C3E50 !important;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+  color: #AAB7C4 !important;
+  padding: 6px 8px 0 0 !important;
+}
+
+.leaflet-container a.leaflet-popup-close-button:hover {
+  color: #36CFC9 !important;
+}
+
+.leaflet-tooltip {
+  background: #101820 !important;
+  border: 1px solid #2C3E50 !important;
+  color: #F1F5F9 !important;
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-size: 11px !important;
+  border-radius: 4px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+  padding: 4px 8px !important;
+}
+
+.leaflet-tooltip-top:before { border-top-color: #2C3E50 !important; }
+.leaflet-tooltip-bottom:before { border-bottom-color: #2C3E50 !important; }
+.leaflet-tooltip-left:before { border-left-color: #2C3E50 !important; }
+.leaflet-tooltip-right:before { border-right-color: #2C3E50 !important; }
+
+/* Ensure controls container is above map tiles and cleanly positioned */
+.leaflet-top.leaflet-left {
+  z-index: 1000 !important;
+  top: 12px;
+  left: 12px;
+}
+
+.controls-offset-top .leaflet-top.leaflet-left {
+  top: 54px;
+}
+
+/* Leaflet Attribution in Dark Geospatial Theme */
+.leaflet-control-attribution {
+  background: rgba(27, 41, 53, 0.85) !important;
+  color: #AAB7C4 !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 9px !important;
+  border-top-left-radius: 4px !important;
+  padding: 2px 6px !important;
+}
+
+.leaflet-control-attribution a {
+  color: #36CFC9 !important;
+  text-decoration: none !important;
+}
+
+.leaflet-control-attribution a:hover {
+  text-decoration: underline !important;
+}
+
+/* Accessibility: Prefers Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

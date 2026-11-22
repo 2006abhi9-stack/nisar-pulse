@@ -1,0 +1,31 @@
+# =====================================================================
+# Render Blueprint Specification for NISAR-Pulse
+# Docs: https://render.com/docs/blueprint-spec
+# =====================================================================
+
+services:
+  - type: web
+    name: nisar-pulse
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    region: oregon
+    healthCheckPath: /api/health
+    envVars:
+      - key: PORT
+        value: 8000
+      - key: STORAGE_DIR
+        value: /app/storage/masks
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      - key: CORS_ORIGINS
+        value: "*"
+      # Sensitive API keys (enter values in Render Dashboard)
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: EARTHDATA_TOKEN
+        sync: false
+      - key: EARTHDATA_USERNAME
+        sync: false
+      - key: EARTHDATA_PASSWORD
+        sync: false
